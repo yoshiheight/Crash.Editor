@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Crash.Editor.Engine Sample</title>
+    <!--
+    <base href="/apps/crash-editor/" />
+    -->
+    <base href="/" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        div.sample-index-page {
+            visibility: hidden;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script src="js/texteditor.js"></script>
+</head>
+<body>
+    <app>Loading...</app>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <script>
+        // 以下はアプリケーションレイヤーとしての処理
+        var Sample_BlazorWasm_TextEditor = Sample_BlazorWasm_TextEditor || {
+            initTextEditorLayout: function (jsObjId_textEditorComponent) {
+                const textEditorComponent = Sample.BlazorWasm.TextEditor.JSObjectReference.from(
+                    jsObjId_textEditorComponent).obj;
+
+                const resizer = () => {
+                    const width = Math.max(window.innerWidth, 300);
+                    const height = Math.max(window.innerHeight, 100);
+                    textEditorComponent.resize(width, height);
+                };
+
+                resizer();
+                document.querySelector("div.sample-index-page").style.visibility = "visible";
+                textEditorComponent.focus();
+                window.addEventListener("resize", () => resizer());
+            },
+        };
+    </script>
+</body>
+</html>

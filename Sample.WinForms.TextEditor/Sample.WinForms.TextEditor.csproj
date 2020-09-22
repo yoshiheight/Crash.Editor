@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Crash.Core.UI\Crash.Core.UI.csproj" />
+    <ProjectReference Include="..\Crash.Core\Crash.Core.csproj" />
+    <ProjectReference Include="..\Crash.Editor.Engine.Presenter\Crash.Editor.Engine.Presenter.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+﻿@inject IJSRuntime JSRuntime
+
+<div style="position: relative; display: inline-block; padding: 0px;">
+    <!-- canvasを「display: block」にしているのは、キャンバスの下に隙間ができるのを防ぐため -->
+    <canvas id="@Id"
+            width="@Width"
+            height="@Height"
+            style="display: block;"></canvas>
+</div>
+
+@code {
+    [Parameter]
+    public string Id { get; set; } = null!;
+
+    [Parameter]
+    public int Width { get; set; }
+
+    [Parameter]
+    public int Height { get; set; }
+}
